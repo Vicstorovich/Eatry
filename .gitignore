@@ -28,3 +28,4 @@
 
 # My ignore files
 /.ruby-version
+/config/database.yml
