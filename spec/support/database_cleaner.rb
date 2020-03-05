@@ -29,7 +29,6 @@ RSpec.configure do |config|
 
     # Start transaction
     DatabaseCleaner.cleaning do
-
       # Run example
       example.run
     end
@@ -39,5 +38,4 @@ RSpec.configure do |config|
     # Clear session data
     Capybara.reset_sessions!
   end
-
 end

@@ -1,4 +1,4 @@
-require_relative 'boot'
+require_relative "boot"
 
 require "rails"
 # Pick the frameworks you want:
@@ -21,7 +21,7 @@ module Eatry
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
-    config.time_zone = 'Moscow'
+    config.time_zone = "Moscow"
 
     config.generators do |g|
       g.test_framework :rspec,
