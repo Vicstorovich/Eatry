@@ -7,9 +7,29 @@
 
 # Offense count: 2
 # Lint/Eval:
-#   Enabled: false
+AllCops:
+  Include:
+    - "app/**/*.rb"
+    - "config/**/*.rb"
+    - "lib/**/*.rb"
+    - "lib/**/*.rake"
+    - "**/Rakefile"
+    - "**/config.ru"
+  Exclude:
+    - "vendor/**/*.rb"
+    - "spec/**/*.rb"
+    - "db/**/*.rb"
+    - "bin/**/*.rb"
+    - "config/**/*"
+    - "script/**/*"
+    - !ruby/regexp /old_and_unused\.rb$/
 
-# Offense count: 2
+  # Rails:
+  #   Enabled: true
+  DisplayCopNames: true
+  StyleGuideCopsOnly: false
+  # RunRailsCops: true
+
 Lint/SuppressedException:
   Enabled: false
 
@@ -102,14 +122,15 @@ Style/UnlessElse:
   Enabled: true
 
 Style/StringLiteralsInInterpolation:
-  EnforcedStyle: double_quotes
+  Enabled: false
+  # EnforcedStyle: double_quotes
 
 Style/StringLiterals:
-  EnforcedStyle: double_quotes
+  Enabled: false
+  # EnforcedStyle: double_quotes
 
 Style/HashTransformValues:
   Enabled: true
 
 Style/FrozenStringLiteralComment:
   Enabled: false
-

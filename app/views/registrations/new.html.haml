@@ -1,0 +1,32 @@
+%body
+  %header#head.secondary
+%body
+  .container
+    .row
+      %article.col-xs-12.maincontent
+        %header.page-header
+          %h1.page-title Sign up
+        .col-md-6.col-md-offset-3.col-sm-8.col-sm-offset-2
+          .panel.panel-default
+            .panel-body
+              %h3.thin.text-center Account registration
+              %hr/
+              = simple_form_for(@user, url: registrations_path) do |f|
+                .top-margin
+                  = f.input :name, label: 'Your username please', error: 'Username is mandatory, please specify one'
+                .top-margin
+                  = f.input :email, placeholder: 'user@domain.com'
+                .top-margin
+                  = f.input :password, hint: 'No special characters.'
+                .top-margin
+                  = f.input :password_confirmation
+                %hr/
+                .row
+                  .col-lg-4
+                    / %b= link_to "Forgot your password?", new_password_path(resource_name)
+                  .col-lg-4
+                    / = link_to "Register", new_registration_path(resource_name), class: "btn"
+                  .col-lg-4.text-right
+                    = f.submit "Create my account", class: "btn btn-primary"
+
+= link_to "Back", root_path
