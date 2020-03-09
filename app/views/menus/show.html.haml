@@ -1,0 +1,24 @@
+%p
+  %strong Name:
+  = menu.name
+
+%table
+  - @categories.each do |category|
+    %tr
+      %td.list_price
+        %dl
+          %strong
+            %dt= category.title
+          - category.products.each do |product|
+            %dd= product.title
+            = link_to "Добавить",  menu_menus_products_path(id: product.id, menu_id: menu.id), method: :post
+
+%table
+  - menu.products.each do |product|
+    %tr
+      %td.list_price
+        %dl
+          = product.title
+          = product.price
+          |
+          = link_to "Удалить",  menu_menus_product_path(menu, id: product.id), method: :delete

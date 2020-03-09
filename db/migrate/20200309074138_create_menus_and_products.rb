@@ -2,13 +2,14 @@ class CreateMenusAndProducts < ActiveRecord::Migration[5.2]
   def change
     create_table :menus do |t|
       t.string :name, unique: true, null: false
+      t.datetime :start_time, null: false
       t.timestamps
     end
 
     create_table :products do |t|
       t.string :title, null: false
       t.text :description
-      t.string :image, null: false
+      t.string :image
       t.decimal :price, precision: 8, scale: 2
       t.belongs_to :category, foreign_key: true
       t.timestamps

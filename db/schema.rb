@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2020_03_09_074138) do
 
   create_table "menus", force: :cascade do |t|
     t.string "name", null: false
+    t.datetime "start_time", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -38,7 +39,7 @@ ActiveRecord::Schema.define(version: 2020_03_09_074138) do
   create_table "products", force: :cascade do |t|
     t.string "title", null: false
     t.text "description"
-    t.string "image", null: false
+    t.string "image"
     t.decimal "price", precision: 8, scale: 2
     t.bigint "category_id"
     t.datetime "created_at", null: false

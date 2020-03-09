@@ -1,0 +1,18 @@
+%p#notice= notice
+%p= link_to 'Welcome', root_path
+%h1 Categories
+%table
+  - @categories.each do |category|
+    %tr{:class => "#{cycle('list_line_odd', 'list_line_even')}"}
+
+      %td.list_description
+        %dl
+          %dt= category.title
+      %td.list_actions
+        %br/
+        = link_to 'Edit', edit_category_path(category)
+        %br/
+        = link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Category',  new_category_path
+

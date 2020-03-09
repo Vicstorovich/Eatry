@@ -2,6 +2,7 @@ class Product < ApplicationRecord
   scope :menu_products, ->(menu) { joins(:menus).where(menus: { id: menu.id }) }
 
   belongs_to :category
+  has_many :menus_products
   has_many :menus, through: :menus_products
   has_many :line_items
 

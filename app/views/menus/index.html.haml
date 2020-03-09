@@ -1,0 +1,14 @@
+%p= link_to 'Welcome', root_path
+%h1 Menus
+%table
+  - @menus.each do |menu|
+    %tr{:class => "#{cycle('list_line_odd', 'list_line_even')}"}
+      %td.list_description
+        %dl
+          %dt= link_to menu.name,  menu_path(menu.id)
+      %td.list_actions
+        %br/
+        |
+        = link_to 'Destroy', menu, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Menu', menus_path, method: :post

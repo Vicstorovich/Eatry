@@ -1,0 +1,16 @@
+.center.jumbotron
+  %h1 Store#index
+  %p Find me in app/views/store/index.html.haml
+  = link_to 'Products', products_path
+  = link_to 'Menu',  menus_path
+  = link_to 'Categoru', categories_path
+
+  = week_calendar events: @menus do |date, menus|
+    = date
+    / = menus
+    - menus.each do |menu|
+      %div
+        - if menu_made_up?(menu)
+          = link_to menu.name,  store_path(menu.id)
+        -else
+          %h3 Store#index
