@@ -1,0 +1,10 @@
+%article.col-xs-12.maincontent
+  %header.page-header
+    %h1.page-title  Product
+    = link_to 'Back', products_path
+  .col-md-6.col-md-offset-3.col-sm-8.col-sm-offset-2
+    .panel.panel-default
+      .panel-body
+        %h3.thin.text-center  Editing Product
+        = render 'form', product: product
+

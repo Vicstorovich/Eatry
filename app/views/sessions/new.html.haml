@@ -1,28 +1,23 @@
-%body
-  %header#head.secondary
-%body
-  .container
-    .row
-      %article.col-xs-12.maincontent
-        %header.page-header
-          %h1.page-title Sign in
-        .col-md-6.col-md-offset-3.col-sm-8.col-sm-offset-2
-          .panel.panel-default
-            .panel-body
-              %h3.thin.text-center Sign in to your account
-              %hr/
-              = simple_form_for(:session, url: sessions_path) do |f|
-                - if flash[:alert]
-                  = content_tag :p, flash[:alert], class: "flash alert"
-                .top-margin
-                  = f.input :email, placeholder: 'user@domain.com'
-                .top-margin
-                  = f.input :password, hint: 'No special characters.'
-                %hr/
-                .row
-                  .col-lg-4
-                  .col-lg-4
-                  .col-lg-4.text-right
-                    = f.submit "Login", class: "btn btn-primary"
+%article.col-xs-12.maincontent
+  %header.page-header
+    %h1.page-title Sign in
+  .col-md-6.col-md-offset-3.col-sm-8.col-sm-offset-2
+    .panel.panel-default
+      .panel-body
+        %h3.thin.text-center Sign in to your account
+        %hr/
+        = simple_form_for(:session, url: sessions_path) do |f|
+          - if flash[:alert]
+            = content_tag :p, flash[:alert], class: "flash alert"
+          .top-margin
+            = f.input :email, placeholder: 'user@domain.com'
+          .top-margin
+            = f.input :password, hint: 'No special characters.'
+          %hr/
+          .row
+            .col-lg-4
+            .col-lg-4
+            .col-lg-4.text-right
+              = f.submit "Login", class: "btn btn-primary"
 
 = link_to "Back", root_path

@@ -1,0 +1,20 @@
+%article.col-xs-12.maincontent
+  %header.page-header
+    %h1.page-title Menus
+  .col-md-6.col-md-offset-3.col-sm-8.col-sm-offset-2
+    .panel.panel-default
+      .panel-body
+        %h3.thin.text-center Menu listing
+        %table.table.table-sm
+          - @menus.each do |menu|
+            %thead
+              %tr
+                %th Title
+                %th Action
+            %tbody
+              %tr
+                %td
+                  = link_to menu.name,  menu_path(menu.id)
+                %td
+                  = link_to 'Destroy', menu, method: :delete, data: { confirm: 'Are you sure?' }
+        = link_to 'New Menu', menus_path, method: :post

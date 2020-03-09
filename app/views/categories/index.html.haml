@@ -1,0 +1,24 @@
+%article.col-xs-12.maincontent
+  %header.page-header
+    %h1.page-title Categories
+  .col-md-6.col-md-offset-3.col-sm-8.col-sm-offset-2
+    .panel.panel-default
+      .panel-body
+        %h3.thin.text-center Categories listing
+        %table.table.table-sm
+          -  @categories.each do |category|
+            %thead
+              %tr
+                %th Title
+                %th Action
+                %th Action
+            %tbody
+              %tr
+                %td
+                  = category.title
+                %td
+                  = link_to 'Edit', edit_category_path(category)
+                %td
+                  = link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' }
+        = link_to 'New Category',  new_category_path
+
