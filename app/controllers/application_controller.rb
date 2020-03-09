@@ -1,8 +1,8 @@
 class ApplicationController < ActionController::Base
   def authenticate_user!
-    unless current_user
-      redirect_to login_path, alert: "Verify your Email and Password, please."
-    end
+    return if current_user
+
+    redirect_to login_path, alert: "Verify your Email and Password, please."
   end
 
   def sign_in(user)
