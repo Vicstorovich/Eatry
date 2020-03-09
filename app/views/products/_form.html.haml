@@ -1,15 +1,13 @@
-= simple_form_for(product, html: { class: 'form-inline' }) do |form|
-  / = render 'shared/error_messages'
-  / = render "shared/errors", resource: product
-  .field
+= simple_form_for(product, html: { class: 'form-control' }) do |form|
+  .top-margin
     = form.input :title
-  .field
+  .top-margin
     = form.input :description
-  .field
+  .top-margin
     = form.input :image
-  .field
+  .top-margin
     = form.input :price
-  .field
+  .top-margin
     = form.collection_select :category_id, Category.all, :id, :title, prompt: true
-  .actions
+
     = form.submit

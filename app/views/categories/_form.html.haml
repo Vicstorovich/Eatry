@@ -1,5 +1,5 @@
-= simple_form_for(@category, html: { class: 'form-inline' }) do |form|
-  - if @category.errors.any?
+= simple_form_for(category) do |form|
+  - if category.errors.any?
     #error_explanation
       %h2
         = pluralize(category.errors.count, "error")
@@ -10,4 +10,4 @@
   .field
     = form.input :title
 
-    = form.submit
+    = form.submit  class: "btn btn-primary"

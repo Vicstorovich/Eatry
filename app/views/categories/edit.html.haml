@@ -1,4 +1,9 @@
-%h1 Editing Product
-= render 'form', category: @category
-|
-= link_to 'Back', categories_path
+%article.col-xs-12.maincontent
+  %header.page-header
+    %h1.page-title  Category
+  .col-md-6.col-md-offset-3.col-sm-8.col-sm-offset-2
+    .panel.panel-default
+      .panel-body
+        %h3.thin.text-center  Edit Category
+        = render 'form', category: category
+        = link_to 'Back', categories_path

@@ -15,28 +15,3 @@
       = sanitize(product.description)
       .price_line
         %span.price= sprintf("$%0.02f", product.price)
-      = button_to 'Add to Cart', line_items_path(product_id: product)
-
-
-
-
-
-/ - @products.each do |product|
-/   .entry
-/     = image_tag(product.image_url)
-/     %h3= product.title
-/     = sanitize(product.description)
-/     .price_line
-/       %span.price= product.price
-/ %p Find me in app/views/store/show.html.haml
-
-/ %table
-/   - @categories.each do |category|
-/     %tr
-/       %td.list_price
-/         %dl
-/           %strong
-/             %dt= category.title
-/           - category.products.menu_products(@menu).each do |product|
-/             %dt= product.title
-/             = sprintf("$%0.02f", product.price)
