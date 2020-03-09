@@ -8,4 +8,18 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
+    %nav.navbar.navbar-inverse.menu
+      %ul.nav.nav-tabs
+        - if user_signed_in?
+          %li{:role => "presentation"}
+            %a{:href => "#"}= link_to "Log out", sessions_path, method: :delete
+            %br/
+
+        - else
+          %li{:role => "presentation"}
+            %a{:href => "#"}= link_to "Log in", login_path
+            %br/
+          %li{:role => "presentation"}
+            %a{:href => "#"}= link_to "Registration", signup_path
+
     = yield

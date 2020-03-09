@@ -29,8 +29,8 @@
 # My ignore files
 /.ruby-version
 /config/database.yml
-.rubocop.yml
-.rubocop_todo.yml
-.rubocop_todo.yml.example
-Guardfile
-
+/.rubocop.yml
+/.rubocop_todo.yml
+/.rubocop_todo.yml.example
+/.rubocop_todo_next.yml
+/Guardfile
