@@ -1,4 +1,4 @@
-= simple_form_for(category) do |form|
+= simple_form_for [:admin, category] do |form|
   - if category.errors.any?
     #error_explanation
       %h2

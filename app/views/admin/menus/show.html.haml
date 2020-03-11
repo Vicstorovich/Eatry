@@ -17,7 +17,7 @@
                     %dt= category.title
                   - category.products.each do |product|
                     %dd= product.title
-                    = link_to "Добавить",  menu_menus_products_path(id: product.id, menu_id: menu.id), method: :post
+                    = link_to "Добавить",  admin_menu_menus_products_path(id: product.id, menu_id: menu.id), method: :post
 
   .col-md-6.col-sm-6.col-xs-12
     .panel.panel-default
@@ -31,4 +31,4 @@
                   = product.title
                   = product.price
                   |
-                  = link_to "Удалить",  menu_menus_product_path(menu, id: product.id), method: :delete
+                  = link_to "Удалить",  admin_menu_menus_product_path(menu, id: product.id), method: :delete

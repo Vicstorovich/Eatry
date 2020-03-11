@@ -14,7 +14,7 @@
             %tbody
               %tr
                 %td
-                  = link_to menu.name,  menu_path(menu.id)
+                  = link_to menu.name,  admin_menu_path(menu.id)
                 %td
-                  = link_to 'Destroy', menu, method: :delete, data: { confirm: 'Are you sure?' }
-        = link_to 'New Menu', menus_path, method: :post
+                  = link_to 'Destroy',[:admin, menu], method: :delete, data: { confirm: 'Are you sure?' }
+        = link_to 'New Menu', admin_menus_path, method: :post

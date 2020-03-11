@@ -1,4 +1,4 @@
-class MenusController < ApplicationController
+class Admin::MenusController < Admin::ApplicationController
   def index
     @menus = Menu.all
   end
@@ -9,16 +9,15 @@ class MenusController < ApplicationController
 
   def create
     if Menu.create_menu
-      redirect_to menus_url
+      redirect_to admin_menus_path, notice: 'Menu was successfully created.'
     else
-      redirect_to menus_url, notice: 'No menu is created today!!!'
-      flash[:notice] = 'No menu is created today!!!'
+      redirect_to admin_menus_path, notice: 'No menu is created today!!!'
     end
   end
 
   def destroy
     menu.destroy
-    redirect_to menus_url
+    redirect_to admin_menus_path
   end
 
   private

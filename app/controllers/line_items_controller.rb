@@ -1,5 +1,7 @@
 class LineItemsController < ApplicationController
   include CurrentCart
+
+  before_action :authenticate_user!
   before_action :set_cart, only: [:create]
 
   def index
@@ -14,7 +16,10 @@ class LineItemsController < ApplicationController
     if !line_item.nil?
       line_item.set_category(product)
 
-      redirect_to store_path(menu.id), notice: 'Your choice of food is excellent.' if line_item.save
+      if line_item.save
+        redirect_to store_path(menu.id),
+                    notice: 'Your choice of food is excellent.'
+      end
     else
       redirect_to store_path(menu.id),
                   notice: "You can not select a dish in this category again!!!"
@@ -26,6 +31,7 @@ class LineItemsController < ApplicationController
     menu = line_item.menu_id
     line_item.destroy
 
-    redirect_to store_path(menu), notice: 'The selected dish has been removed from your order'
+    redirect_to store_path(menu),
+                notice: 'The selected dish has been removed from your order'
   end
 end

@@ -40,6 +40,7 @@ gem "simple_form"
 gem "twitter-bootstrap-rails"
 gem "email_validator"
 gem "redis-rails"
+gem 'jquery-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
