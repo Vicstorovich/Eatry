@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   resources :store, only: [:index, :show]
   resources :categories
   resources :products
+  resources :line_items
+  resources :carts
 
   resources :menus, only: %i[index show create destroy] do
     resources :menus_products, only: %i[index create destroy]
