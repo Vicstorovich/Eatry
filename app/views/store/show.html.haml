@@ -5,6 +5,7 @@
         .panel-body
           %h1.page-title Menu
           %p= link_to 'Back', root_path
+          %p= @cart.id
     .col-md-6.col-sm-6.col-xs-12
       .panel.panel-default
         .panel-body
@@ -15,8 +16,8 @@
               %tr.total_line
                 %td{:colspan => "2"} Total
                 %td.total_cell= number_to_currency(@cart.total_price)
-            = button_to 'Оформить заказ', @cart, method: :delete,
-              confirm: 'Are you sure?'
+            = button_to 'Оформить заказ', new_order_path, method: :get
+
   .col-md-10.col-md-offset-2.col-sm-8.col-sm-offset-2
     .panel.panel-default
       .panel-body.jumbotron

@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :categories
   resources :products
   resources :line_items
-  resources :carts
+  resources :orders
 
   resources :menus, only: %i[index show create destroy] do
     resources :menus_products, only: %i[index create destroy]
