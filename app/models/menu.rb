@@ -13,4 +13,8 @@ class Menu < ApplicationRecord
   def product?(product)
     products.exists?(product.id)
   end
+
+  def category?(category)
+    products.exists?(category)
+  end
 end

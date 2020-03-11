@@ -1,17 +1,54 @@
-%p= link_to 'Welcome', root_path
+%article.col-xs-12.maincontent
+  %header.page-header
+    .col-md-6.col-sm-6.col-xs-12
+      .panel.panel-default
+        .panel-body
+          %h1.page-title Menu
+          %p= link_to 'Back', root_path
+          %p= @cart.id
+    .col-md-6.col-sm-6.col-xs-12
+      .panel.panel-default
+        .panel-body
+          %h3.thin.text-center Your order
+          - unless @cart.line_items.empty?
+            %table
+              = render partial: "line_items", locals: {line_items: @cart.line_items, menu_id: @menu}
+              %tr.total_line
+                %td{:colspan => "2"} Total
+                %td.total_cell= number_to_currency(@cart.total_price)
+            = button_to 'Оформить заказ', new_order_path, method: :get
 
-%h1 Store#show
+  .col-md-10.col-md-offset-2.col-sm-8.col-sm-offset-2
+    .panel.panel-default
+      .panel-body.jumbotron
+        %h3.thin.text-center Menu list
+        %table.table.table-sm
+          - @categories.each do |category|
+            %thead
+              %tr{:class => "#{cycle('list_line_odd', 'list_line_even')}"}
+                %th Categoru
+                %th Description
+            %tbody
+              %tr
+                %td
+                  = category.title
+                %td
+                  %table.table.table-sm
+                    - category.products.menu_products(@menu).each do |product|
+                      %thead
+                        %tr{:class => "#{cycle('list_line_odd', 'list_line_even')}"}
+                          %th Image
+                          %th Description
+                          %th Price
+                          %th Cart
+                      %tbody
+                        %tr
+                          %td
+                            = image_tag(product.image_url)
+                          %td
+                            = sanitize(product.description)
+                          %td
+                            = sprintf("$%0.02f", product.price)
+                          %td
+                            = button_to 'Add to Cart', line_items_path(product_id: product, menu_id: @menu)
 
-
-
-- @categories.each do |category|
-  %strong
-    = category.title
-  - category.products.menu_products(@menu).each do |product|
-    .entry
-      = image_tag(product.image_url)
-      %h3= product.title
-      |
-      = sanitize(product.description)
-      .price_line
-        %span.price= sprintf("$%0.02f", product.price)

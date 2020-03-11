@@ -1,0 +1,33 @@
+%article.col-xs-12.maincontent
+  %header.page-header
+    %h1.page-title
+      %p
+        %strong
+        / = menu.name
+  .col-md-6.col-sm-6.col-xs-12
+    .panel.panel-default
+      .panel-body
+        %h3.thin.text-center Order № #{order.id}
+        %p#notice= notice
+        %p
+          %strong Name:
+          = order.name
+        %p
+          %strong Address:
+          = order.address
+        %p
+          %strong Email:
+          = order.email
+        = link_to 'Edit', edit_order_path(order)
+        |
+        = link_to 'Back', orders_path
+
+  .col-md-6.col-sm-6.col-xs-12
+    .panel.panel-default
+      .panel-body
+        %h3.thin.text-center Order № #{order.id}
+        %table
+          = render partial: "line_items", locals: {line_items: order.line_items}
+          %tr.total_line
+            %td{:colspan => "2"} Total
+            %td.total_cell= number_to_currency(order.total_price)
