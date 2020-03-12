@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   resource :registrations, only: :create
   resource :sessions, only: [:create, :destroy]
+  resource :profiles, only: %i[edit update]
   resources :store, only: [:index, :show]
   resources :line_items
   resources :orders, only: %i[new create]
@@ -18,5 +19,4 @@ Rails.application.routes.draw do
     end
     resources :orders, only: %i[index show destroy]
   end
-
 end
