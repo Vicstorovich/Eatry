@@ -7,28 +7,8 @@
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-  %body
-    = link_to 'Products', products_path
-    = link_to 'Menu',  menus_path
-    = link_to 'Categoru', categories_path
-    = link_to 'Story', store_index_path
-    %nav.navbar.navbar-inverse.menu
-      %ul.nav.nav-tabs
-        - if user_signed_in?
-          %li{:role => "presentation"}
-            %a{:href => "#"}= link_to "Log out", sessions_path, method: :delete
-            %br/
-
-        - else
-          %li{:role => "presentation"}
-            %a{:href => "#"}= link_to "Log in", login_path
-            %br/
-          %li{:role => "presentation"}
-            %a{:href => "#"}= link_to "Registration", signup_path
+  %body.super
+    = render 'shared/header'
     .container
-      %div{class: "#{controller.controller_name}"}
-        - flash.each do |message_type, message|
-          %div{:class => "alert alert-#{message_type}"}= message
       .row
-
-        = yield
+    = yield

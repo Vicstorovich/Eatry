@@ -1,12 +1,8 @@
 class OrdersController < ApplicationController
   include CurrentCart
+
+  before_action :authenticate_user!
   before_action :set_cart, only: %i[new create show]
-
-  def index
-    @orders = Order.all
-  end
-
-  def show; end
 
   def new
     if @cart.line_items.empty?
@@ -27,14 +23,6 @@ class OrdersController < ApplicationController
       redirect_to store_index_path, notice: 'Thank you for your order.'
     else
       render action: 'new'
-    end
-  end
-
-  def destroy
-    order.destroy
-    respond_to do |format|
-      format.html { redirect_to orders_url, notice: 'Order was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 

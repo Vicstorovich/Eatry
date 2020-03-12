@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     if user&.authenticate(params[:session][:password])
       sign_in user
 
-      redirect_to root_path
+      redirect_to store_index_path
     else
       flash.now[:alert] = "Verify your Email and Password, please."
       render :new

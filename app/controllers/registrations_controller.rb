@@ -9,7 +9,7 @@ class RegistrationsController < ApplicationController
     if @user.save
       sign_in @user
 
-      redirect_to root_path
+      redirect_to store_index_path
     else
       render :new
     end

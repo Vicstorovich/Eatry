@@ -22,6 +22,8 @@
     .panel.panel-default
       .panel-body.jumbotron
         %h3.thin.text-center Menu list
+        %p#notice= notice
+
         %table.table.table-sm
           - @categories.each do |category|
             %thead
