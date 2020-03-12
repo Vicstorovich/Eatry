@@ -9,6 +9,7 @@
         - if user_signed_in?
           %li= link_to "Home", store_index_path
           %li= link_to "Edit profile",  edit_profiles_path
+          %li= link_to "Registering your application",  signup_app_path
           %li
             - flash.each do |message_type, message|
               %div{:class => "alert alert-#{message_type}"}= message

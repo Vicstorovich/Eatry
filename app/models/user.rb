@@ -6,7 +6,7 @@ class User < ApplicationRecord
   has_one :profile, dependent: :destroy
 
   validates :name, presence: true, length: { maximum: 50 }
-  validates :email, email: true
+  validates :email, email: true, presence: true, uniqueness: true
 
   accepts_nested_attributes_for :profile, update_only: true
   has_secure_password
