@@ -21,4 +21,11 @@ Rails.application.routes.draw do
     end
     resources :orders, only: %i[index show destroy]
   end
+
+  namespace :api do
+    resources :auth_tokens, only: :create
+    namespace :v1 do
+      # resources :courses, only: :index
+    end
+  end
 end

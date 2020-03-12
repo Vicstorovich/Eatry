@@ -287,6 +287,9 @@ GEM
     redis-store (1.8.1)
       redis (>= 4, < 5)
     regexp_parser (1.7.0)
+    responders (3.0.0)
+      actionpack (>= 5.0)
+      railties (>= 5.0)
     rexml (3.2.4)
     rspec (3.9.0)
       rspec-core (~> 3.9.0)
@@ -430,6 +433,7 @@ DEPENDENCIES
   rails-controller-testing
   redis (~> 4.0)
   redis-rails
+  responders
   rspec-rails (~> 4.0.0.beta)
   rubocop-rails
   sass-rails (~> 5.0)
