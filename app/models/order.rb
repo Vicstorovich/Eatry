@@ -13,4 +13,11 @@ class Order < ApplicationRecord
   def total_price
     line_items.to_a.sum(&:total_price)
   end
+
+  def name_product
+    products = []
+    line_items.find_each { |lim| products << lim.product.title }
+    products
+  end
 end
+

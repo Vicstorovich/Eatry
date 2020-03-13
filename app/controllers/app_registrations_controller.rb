@@ -1,4 +1,6 @@
 class AppRegistrationsController < ApplicationController
+  before_action :authenticate_user!
+
   def new
     @app = App.new
   end
