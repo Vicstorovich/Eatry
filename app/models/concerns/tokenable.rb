@@ -9,6 +9,7 @@ module Tokenable
 
   def ensure_token
     return if token.present?
+
     self.token = generate_auth_token
   end
 

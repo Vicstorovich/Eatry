@@ -13,7 +13,7 @@ RSpec.configure do |config|
     DatabaseCleaner.clean_with(:truncation)
     begin
       DatabaseCleaner.start
-      FactoryGirl.lint
+
     ensure
       DatabaseCleaner.clean
     end

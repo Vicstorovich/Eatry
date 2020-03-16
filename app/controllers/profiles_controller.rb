@@ -6,6 +6,7 @@ class ProfilesController < ApplicationController
       flash[:notice] = "The profile was updated successfully."
       redirect_to edit_profiles_path
     else
+      flash[:notice] = "The profile not updated."
       render :edit
     end
   end

@@ -5,11 +5,6 @@ class OrdersController < ApplicationController
   before_action :set_cart, only: %i[new create show]
 
   def new
-    if @cart.line_items.empty?
-      redirect_to store_index_path, notice: "Your cart is empty"
-      return
-    end
-
     @order = Order.new
   end
 

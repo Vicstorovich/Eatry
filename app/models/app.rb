@@ -8,6 +8,6 @@ class App < ApplicationRecord
   has_secure_password
 
   def valid_password?(value)
-    BCrypt::Password.new(self.password_digest) == value
+    BCrypt::Password.new(password_digest) == value
   end
 end

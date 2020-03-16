@@ -9,8 +9,9 @@ class RegistrationsController < ApplicationController
     if @user.save
       sign_in @user
 
-      redirect_to store_index_path, notice: 'Registration was successful.'
+      redirect_to store_index_path, notice: 'Welcome! You have signed up successfully.'
     else
+      flash.now[:alert] = "Verify your Email and Password, please."
       render :new
     end
   end

@@ -1,5 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe App, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  subject { build :app, password: "8364848" }
+
+  it { should validate_presence_of(:email) }
+  it { should validate_uniqueness_of(:email)}
 end

@@ -1,6 +1,6 @@
 class Admin::MenusController < Admin::ApplicationController
   def index
-    @menus = Menu.all
+    @menus = Menu.all.page(params[:page]).per(2)
   end
 
   def show
@@ -17,7 +17,7 @@ class Admin::MenusController < Admin::ApplicationController
 
   def destroy
     menu.destroy
-    redirect_to admin_menus_path
+    redirect_to admin_menus_path, notice: 'Menu was successfully deleted.'
   end
 
   private
