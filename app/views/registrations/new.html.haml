@@ -12,6 +12,8 @@
               %h3.thin.text-center Account registration
               %hr/
               = simple_form_for(@user, url: registrations_path) do |f|
+                - if flash[:alert]
+                  = content_tag :p, flash[:alert], class: "flash alert"
                 .top-margin
                   = f.input :name, label: 'Your username please', error: 'Username is mandatory, please specify one'
                 .top-margin
@@ -27,4 +29,4 @@
                   .col-lg-4.text-right
                     = f.submit "Create my account", class: "btn btn-primary"
 
-= link_to "Back", root_path
+              = link_to "Start page", root_path

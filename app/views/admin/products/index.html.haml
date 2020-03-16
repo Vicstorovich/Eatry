@@ -1,11 +1,10 @@
 %article.col-xs-12.maincontent
   %header.page-header
-    %h1.page-title Products
-    %p= link_to 'Back', root_path
   .col-md-10.col-md-offset-2.col-sm-8.col-sm-offset-2
     .panel.panel-default
       .panel-body.jumbotron
         %h3.thin.text-center Products list
+        %p= link_to 'Back', store_index_path
         %table.table.table-sm
           - @products.each do |product|
             %thead
@@ -30,10 +29,9 @@
                 %td
                   = number_to_currency(product.price)
                 %td
-                  = link_to 'Show',[:admin, product]
-                %td
                   = link_to 'Edit', edit_admin_product_path(product)
                 %td
                   = link_to 'Destroy',[:admin, product], method: :delete, data: { confirm: 'Are you sure?' }
 
         = link_to 'New Product', new_admin_product_path
+      = paginate @products

@@ -4,13 +4,9 @@ class LineItemsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_cart, only: [:create]
 
-  def index
-    @line_items = LineItem.all
-  end
-
   def create
-    product = Product.find(params[:product_id])
     menu = Menu.find(params[:menu_id])
+    product = Product.find(params[:product_id])
     line_item = @cart.add_product(product, menu)
 
     if !line_item.nil?

@@ -20,4 +20,3 @@ class Order < ApplicationRecord
     products
   end
 end
-

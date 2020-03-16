@@ -5,9 +5,14 @@ class Menu < ApplicationRecord
   validates :name, presence: true, uniqueness: true
 
   def self.create_menu
-    name = "Menu on  #{Time.now.strftime('%A (%m/%d/%y)')}"
-    time = Time.now
-    create(name: name, start_time: time)
+    current_menu = Menu.find_by(name: "Menu on  #{Date.today.inspect}")
+    if !current_menu
+      name = "Menu on  #{Date.today.inspect}"
+      time = Date.today
+      create(name: name, start_time: time)
+    else
+      false
+    end
   end
 
   def product?(product)

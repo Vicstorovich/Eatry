@@ -43,6 +43,7 @@ gem "redis-rails"
 gem 'jquery-rails'
 gem 'responders'
 gem 'active_model_serializers'
+gem 'kaminari'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -77,10 +78,12 @@ group :test do
   gem "selenium-webdriver"
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem "chromedriver-helper"
+  # gem 'webdrivers', '~> 4.0'
   gem "database_cleaner"
   gem "fuubar"
   gem "rails-controller-testing"
   gem "shoulda-matchers"
+  gem 'launchy'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

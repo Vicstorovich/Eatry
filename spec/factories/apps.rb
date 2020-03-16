@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :app do
-    email { "MyString" }
-    password { "MyString" }
-    token { "MyString" }
+    email { Faker::Internet.email }
+    password { Faker::Number.number(7) }
+    token { nil }
   end
 end
