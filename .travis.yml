@@ -1,6 +1,6 @@
 lunguage: ruby
 rvm: 
-  - 1.29.9
+  - 2.4.5
 notifications:
   email: false
 
