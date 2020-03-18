@@ -9,7 +9,7 @@ addons:
 
 
 install:
-  - bundle install -v 2.0.2
+  - bundle install 2.0.2
 before_script:
    - bundle update --bundler
   
