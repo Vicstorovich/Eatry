@@ -6,7 +6,10 @@ notifications:
 
 addons:
   postgresql: '11.7'
-  
+
+
+install:
+  - bundle install
 before_script:
    - bundle update --bundler
   
