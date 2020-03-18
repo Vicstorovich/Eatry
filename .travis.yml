@@ -7,6 +7,9 @@ notifications:
 addons:
   postgresql: '11.7'
   
+before_script:
+   - bundle update --bundler
+  
 bundler_args: --without development --deployment --jobs=3 --retry=3
 cache: bundler
 
