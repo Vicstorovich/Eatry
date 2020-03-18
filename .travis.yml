@@ -2,6 +2,7 @@ lunguage: ruby
 rvm: 
   - 2.4.5
 before_install: 
+  - yes | gem update --system --force
   - gem install bundler -v 2.0.2
   - bundle update --bundler
 
