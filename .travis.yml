@@ -1,7 +1,7 @@
 lunguage: ruby
 rvm: 
   - 2.4.5
-before_script: 
+before_install: 
   - gem install bundler -v 2.0.2
 
 notifications:
