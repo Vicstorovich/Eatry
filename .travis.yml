@@ -10,7 +10,9 @@ notifications:
 
 addons:
   postgresql: '11.7'
-  
+services:
+  - redis-server
+
 bundler_args: --jobs=3 --retry=3 --without development
 cache: bundler
 
