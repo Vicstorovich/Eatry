@@ -10,8 +10,16 @@ class StoreController < ApplicationController
   end
 
   def show
-    @menu = Menu.all.last
+    menu
 
     @categories = Category.all
   end
+
+  private
+
+  def menu
+    @menu = Menu.find(params[:id])
+  end
+
+  helper_method :menu
 end
